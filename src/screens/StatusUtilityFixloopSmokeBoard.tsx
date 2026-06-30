@@ -41,7 +41,7 @@ export function StatusUtilityFixloopSmokeBoard({
       <RefreshCw aria-hidden={true} focusable="false" />
       </button>
       <button className="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors active:scale-95 transition-transform p-xs rounded" type="button" aria-label="Settings" data-action-id="settings-2" onClick={actions?.["settings-2"]}>
-      <Settings aria-label="settings" focusable="false" />
+      <Settings aria-hidden={true} focusable="false" />
       </button>
       </div>
       </header>
@@ -94,7 +94,7 @@ export function StatusUtilityFixloopSmokeBoard({
       {/* Controls Section */}
       <section className="w-full flex flex-col items-center gap-sm mt-md">
       <button className="w-full md:w-auto bg-primary-container text-on-primary-container font-headline-md text-headline-md px-xl py-md rounded-lg hover:bg-primary hover:text-on-primary transition-colors active:scale-[0.98] flex items-center justify-center gap-sm shadow-sm" id="ACT_REFRESH_STATUS" type="button" data-action-id="refresh-status-3" onClick={actions?.["refresh-status-3"]}>
-      <RefreshCw aria-label="sync" focusable="false" />
+      <RefreshCw aria-hidden={true} focusable="false" />
                       Refresh Status
                   </button>
       <div className="font-code-md text-code-md text-on-surface-variant mt-sm">
