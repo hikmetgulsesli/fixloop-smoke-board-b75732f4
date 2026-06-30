@@ -14,10 +14,21 @@ export type StatusUtilityFixloopSmokeBoardActionId = "refresh-1" | "settings-2" 
 
 export interface StatusUtilityFixloopSmokeBoardProps {
   actions?: Partial<Record<StatusUtilityFixloopSmokeBoardActionId, () => void>>;
-
+  ready?: boolean;
+  lastRefreshedAt?: string;
+  systemHealth?: number;
+  apiConnectivity?: 'Stable' | 'Degraded';
+  dbLatencyMs?: number;
 }
 
-export function StatusUtilityFixloopSmokeBoard({ actions }: StatusUtilityFixloopSmokeBoardProps) {
+export function StatusUtilityFixloopSmokeBoard({
+  actions,
+  ready = true,
+  lastRefreshedAt = new Date().toISOString(),
+  systemHealth = 99.9,
+  apiConnectivity = 'Stable',
+  dbLatencyMs = 24,
+}: StatusUtilityFixloopSmokeBoardProps) {
   return (
     <>
       {/* TopAppBar */}
@@ -43,9 +54,9 @@ export function StatusUtilityFixloopSmokeBoard({ actions }: StatusUtilityFixloop
       <p className="font-body-sm text-body-sm text-on-surface-variant mt-xs">Monitoring core loop integrity</p>
       </div>
       <div className="flex items-center gap-sm">
-      <span className="font-label-caps text-label-caps text-on-surface uppercase" id="statusLabel">Ready</span>
+      <span className="font-label-caps text-label-caps text-on-surface uppercase" id="statusLabel">{ready ? 'Ready' : 'Paused'}</span>
       <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-      <input defaultChecked={true} className="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out border-outline-variant" id="ACT_TOGGLE_STATUS" name="toggle" type="checkbox" />
+      <input checked={ready} onChange={actions?.['settings-2']} className="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out border-outline-variant" id="ACT_TOGGLE_STATUS" name="toggle" type="checkbox" />
       <label className="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" htmlFor="ACT_TOGGLE_STATUS"></label>
       </div>
       </div>
@@ -58,7 +69,7 @@ export function StatusUtilityFixloopSmokeBoard({ actions }: StatusUtilityFixloop
       <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">System Health</span>
       <div className="w-2 h-2 rounded-full bg-green-500 status-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
       </div>
-      <div className="font-headline-md text-headline-md text-on-surface">99.9%</div>
+      <div className="font-headline-md text-headline-md text-on-surface">{systemHealth.toFixed(1)}%</div>
       <div className="font-code-sm text-code-sm text-on-surface-variant bg-surface-container-highest px-xs py-[2px] rounded w-fit">UPTIME_LAST_24H</div>
       </div>
       {/* Card 2: API Connectivity */}
@@ -67,7 +78,7 @@ export function StatusUtilityFixloopSmokeBoard({ actions }: StatusUtilityFixloop
       <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">API Connectivity</span>
       <div className="w-2 h-2 rounded-full bg-green-500 status-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
       </div>
-      <div className="font-headline-md text-headline-md text-on-surface">Stable</div>
+      <div className="font-headline-md text-headline-md text-on-surface">{apiConnectivity}</div>
       <div className="font-code-sm text-code-sm text-on-surface-variant bg-surface-container-highest px-xs py-[2px] rounded w-fit">ALL_ENDPOINTS_OK</div>
       </div>
       {/* Card 3: Database Latency */}
@@ -76,7 +87,7 @@ export function StatusUtilityFixloopSmokeBoard({ actions }: StatusUtilityFixloop
       <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">DB Latency</span>
       <div className="w-2 h-2 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]"></div>
       </div>
-      <div className="font-headline-md text-headline-md text-on-surface">24ms</div>
+      <div className="font-headline-md text-headline-md text-on-surface">{dbLatencyMs}ms</div>
       <div className="font-code-sm text-code-sm text-on-surface-variant bg-surface-container-highest px-xs py-[2px] rounded w-fit">AVG_QUERY_TIME</div>
       </div>
       </section>
@@ -87,7 +98,7 @@ export function StatusUtilityFixloopSmokeBoard({ actions }: StatusUtilityFixloop
                       Refresh Status
                   </button>
       <div className="font-code-md text-code-md text-on-surface-variant mt-sm">
-                      Last Updated: <span id="timestamp">2023-10-27 14:30:05 UTC</span>
+                      Last Updated: <span id="timestamp">{lastRefreshedAt}</span>
       </div>
       </section>
       {/* Error State / Metadata */}
