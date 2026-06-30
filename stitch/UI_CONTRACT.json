@@ -1,0 +1,60 @@
+[
+  {
+    "screenId": "22e3be4b575e46cfa1a2b311d596b59c",
+    "screenTitle": "Status Utility - FixLoop Smoke Board",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "button",
+        "label": "refresh",
+        "line": 128
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 131
+      },
+      {
+        "type": "button",
+        "label": "Refresh Status",
+        "line": 184
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 147
+      }
+    ],
+    "navigation": [],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "refresh",
+        "line": 128
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 131
+      },
+      {
+        "type": "button",
+        "label": "Refresh Status",
+        "line": 184
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 147
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 4,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
