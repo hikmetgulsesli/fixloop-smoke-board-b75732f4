@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type {
   FixloopSmokeBoardActions,
   FixloopSmokeBoardState,
@@ -48,21 +48,15 @@ export function FixloopSmokeBoardProvider({
   });
 
   const refreshStatus = useCallback(() => {
-    setState((prev) => {
-      const nextItems = refreshItems(prev.items);
-      const nextPreference: Preference = {
+    setState((prev) => ({
+      ...prev,
+      items: refreshItems(prev.items),
+      preference: {
         ...prev.preference,
         lastRefreshedAt: new Date().toISOString(),
-      };
-      saveStatusItems(nextItems);
-      savePreference(nextPreference);
-      return {
-        ...prev,
-        items: nextItems,
-        preference: nextPreference,
-        lastError: null,
-      };
-    });
+      },
+      lastError: null,
+    }));
   }, []);
 
   const toggleReadyMode = useCallback(() => {
@@ -71,16 +65,13 @@ export function FixloopSmokeBoardProvider({
         ...prev.preference,
         readyMode: !prev.preference.readyMode,
       };
-      const nextItems = prev.items.map((item) => ({
-        ...item,
-        state: nextPreference.readyMode ? ('ready' as const) : ('paused' as const),
-        updatedAt: new Date().toISOString(),
-      }));
-      saveStatusItems(nextItems);
-      savePreference(nextPreference);
       return {
         ...prev,
-        items: nextItems,
+        items: prev.items.map((item) => ({
+          ...item,
+          state: nextPreference.readyMode ? ('ready' as const) : ('paused' as const),
+          updatedAt: new Date().toISOString(),
+        })),
         preference: nextPreference,
         lastError: null,
       };
@@ -99,6 +90,14 @@ export function FixloopSmokeBoardProvider({
     }),
     [refreshStatus, toggleReadyMode, dismissError],
   );
+
+  useEffect(() => {
+    saveStatusItems(state.items);
+  }, [state.items]);
+
+  useEffect(() => {
+    savePreference(state.preference);
+  }, [state.preference]);
 
   return (
     <FixloopSmokeBoardStateContext.Provider value={state}>

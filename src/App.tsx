@@ -20,6 +20,9 @@ function SmokeBoardScreen() {
 
   useEffect(() => {
     window.app = { state, actions };
+    return () => {
+      delete window.app;
+    };
   }, [state, actions]);
 
   const screenActions: StatusUtilityFixloopSmokeBoardProps['actions'] = useMemo(
