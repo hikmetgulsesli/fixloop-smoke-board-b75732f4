@@ -4,6 +4,7 @@ import type { StatusUtilityFixloopSmokeBoardProps } from './screens';
 import {
   initialStatusUtilityState,
   refreshStatus,
+  tickStatus,
   type StatusUtilityState,
 } from './features/surf-status-utility/act_refresh_status';
 import { toggleStatus } from './features/surf-status-utility/act_toggle_status';
@@ -36,6 +37,14 @@ function SmokeBoardScreen() {
       delete window.app;
     };
   }, [state, actions]);
+
+  useEffect(() => {
+    if (!state.ready) return;
+    const handle = setInterval(() => {
+      setState((prev) => tickStatus(prev));
+    }, 2000);
+    return () => clearInterval(handle);
+  }, [state.ready]);
 
   const screenActions: StatusUtilityFixloopSmokeBoardProps['actions'] = useMemo(
     () => ({
