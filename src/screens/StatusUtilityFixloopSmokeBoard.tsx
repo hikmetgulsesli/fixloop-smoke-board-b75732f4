@@ -41,7 +41,7 @@ export function StatusUtilityFixloopSmokeBoard({
       <RefreshCw aria-hidden={true} focusable="false" />
       </button>
       <button className="text-on-surface-variant hover:bg-surface-container-highest dark:hover:bg-surface-container-highest transition-colors active:scale-95 transition-transform p-xs rounded" type="button" aria-label="Settings" data-action-id="settings-2" onClick={actions?.["settings-2"]}>
-      <Settings aria-hidden={true} focusable="false" />
+      <Settings aria-label="settings" focusable="false" />
       </button>
       </div>
       </header>
@@ -56,7 +56,7 @@ export function StatusUtilityFixloopSmokeBoard({
       <div className="flex items-center gap-sm">
       <span className="font-label-caps text-label-caps text-on-surface uppercase" id="statusLabel">{ready ? 'Ready' : 'Paused'}</span>
       <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-      <input checked={ready} onChange={actions?.['settings-2']} className="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out border-outline-variant" id="ACT_TOGGLE_STATUS" name="toggle" type="checkbox" />
+      <input checked={ready} onChange={actions?.['settings-2']} aria-label="toggle" className="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out border-outline-variant" id="ACT_TOGGLE_STATUS" name="toggle" type="checkbox" />
       <label className="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" htmlFor="ACT_TOGGLE_STATUS"></label>
       </div>
       </div>
@@ -94,7 +94,7 @@ export function StatusUtilityFixloopSmokeBoard({
       {/* Controls Section */}
       <section className="w-full flex flex-col items-center gap-sm mt-md">
       <button className="w-full md:w-auto bg-primary-container text-on-primary-container font-headline-md text-headline-md px-xl py-md rounded-lg hover:bg-primary hover:text-on-primary transition-colors active:scale-[0.98] flex items-center justify-center gap-sm shadow-sm" id="ACT_REFRESH_STATUS" type="button" data-action-id="refresh-status-3" onClick={actions?.["refresh-status-3"]}>
-      <RefreshCw aria-hidden={true} focusable="false" />
+      <RefreshCw aria-label="sync" focusable="false" />
                       Refresh Status
                   </button>
       <div className="font-code-md text-code-md text-on-surface-variant mt-sm">
