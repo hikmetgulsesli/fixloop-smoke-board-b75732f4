@@ -47,6 +47,15 @@ export function FixloopSmokeBoardProvider({
     };
   });
 
+  // Persist state to localStorage outside of setState updaters so updaters remain pure.
+  useEffect(() => {
+    saveStatusItems(state.items);
+  }, [state.items]);
+
+  useEffect(() => {
+    savePreference(state.preference);
+  }, [state.preference]);
+
   const refreshStatus = useCallback(() => {
     setState((prev) => ({
       ...prev,
@@ -90,14 +99,6 @@ export function FixloopSmokeBoardProvider({
     }),
     [refreshStatus, toggleReadyMode, dismissError],
   );
-
-  useEffect(() => {
-    saveStatusItems(state.items);
-  }, [state.items]);
-
-  useEffect(() => {
-    savePreference(state.preference);
-  }, [state.preference]);
 
   return (
     <FixloopSmokeBoardStateContext.Provider value={state}>
