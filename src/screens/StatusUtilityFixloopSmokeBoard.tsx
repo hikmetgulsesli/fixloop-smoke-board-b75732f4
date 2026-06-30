@@ -24,7 +24,7 @@ export interface StatusUtilityFixloopSmokeBoardProps {
 export function StatusUtilityFixloopSmokeBoard({
   actions,
   ready = true,
-  lastRefreshedAt = new Date().toISOString(),
+  lastRefreshedAt = '',
   systemHealth = 99.9,
   apiConnectivity = 'Stable',
   dbLatencyMs = 24,

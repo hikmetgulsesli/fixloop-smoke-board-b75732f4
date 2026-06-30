@@ -25,7 +25,11 @@ function SmokeBoardScreen() {
 
   const actions = useMemo<StatusUtilityActions>(
     () => ({
-      refreshStatus: () => setState((prev) => refreshStatus(prev)),
+      refreshStatus: () => {
+        const timestamp = new Date().toISOString();
+        const latency = Math.floor(Math.random() * 50) + 10;
+        setState((prev) => refreshStatus(prev, timestamp, latency));
+      },
       toggleStatus: () => setState((prev) => toggleStatus(prev)),
     }),
     [],

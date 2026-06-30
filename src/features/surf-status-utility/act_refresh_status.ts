@@ -16,8 +16,8 @@ export const initialStatusUtilityState: StatusUtilityState = {
 
 export function refreshStatus(
   state: StatusUtilityState,
-  lastRefreshedAt: string = new Date().toISOString(),
-  dbLatencyMs: number = Math.floor(Math.random() * 50) + 10,
+  lastRefreshedAt: string,
+  dbLatencyMs: number,
 ): StatusUtilityState {
   return {
     ...state,
