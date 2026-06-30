@@ -1,0 +1,240 @@
+{
+  "generatedAt": "2026-06-30T09:29:37.781Z",
+  "screenCount": 1,
+  "screens": {
+    "22e3be4b575e46cfa1a2b311d596b59c": {
+      "screenId": "22e3be4b575e46cfa1a2b311d596b59c",
+      "materialSymbolsRequired": true,
+      "sections": [
+        {
+          "tag": "header",
+          "layout": "flex-row",
+          "classes": [
+            "bg-surface",
+            "dark:bg-surface",
+            "border-b",
+            "border-outline-variant",
+            "dark:border-outline-variant",
+            "w-full",
+            "top-0",
+            "flex",
+            "justify-between",
+            "items-center"
+          ],
+          "childCount": 2
+        },
+        {
+          "tag": "main",
+          "layout": "flex-col",
+          "classes": [
+            "flex-grow",
+            "flex",
+            "flex-col",
+            "items-center",
+            "p-lg",
+            "md:p-xl",
+            "gap-xl",
+            "w-full",
+            "max-w-3xl",
+            "mx-auto"
+          ],
+          "childCount": 24
+        }
+      ],
+      "buttons": [
+        {
+          "kind": "button",
+          "label": "refresh",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "transition-colors",
+            "active:scale-95",
+            "transition-transform",
+            "p-xs",
+            "rounded"
+          ],
+          "icon": "refresh",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "classes": [
+            "text-on-surface-variant",
+            "hover:bg-surface-container-highest",
+            "dark:hover:bg-surface-container-highest",
+            "transition-colors",
+            "active:scale-95",
+            "transition-transform",
+            "p-xs",
+            "rounded"
+          ],
+          "icon": "settings",
+          "action": "navigate",
+          "expectedBehavior": "navigate:/settings",
+          "expectedRoute": "/settings",
+          "routeInferred": true
+        },
+        {
+          "kind": "button",
+          "label": "Refresh Status",
+          "classes": [
+            "w-full",
+            "md:w-auto",
+            "bg-primary-container",
+            "text-on-primary-container",
+            "font-headline-md",
+            "text-headline-md",
+            "px-xl",
+            "py-md",
+            "rounded-lg",
+            "hover:bg-primary",
+            "hover:text-on-primary",
+            "transition-colors",
+            "active:scale-[0.98]",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-sm",
+            "shadow-sm"
+          ],
+          "icon": "sync",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        }
+      ],
+      "inputs": [
+        {
+          "kind": "input",
+          "type": "checkbox",
+          "label": "toggle",
+          "placeholder": "",
+          "name": "toggle",
+          "classes": [
+            "toggle-checkbox",
+            "absolute",
+            "block",
+            "w-5",
+            "h-5",
+            "rounded-full",
+            "bg-white",
+            "border-4",
+            "appearance-none",
+            "cursor-pointer",
+            "z-10",
+            "transition-transform",
+            "duration-200",
+            "ease-in-out",
+            "border-outline-variant"
+          ],
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "navLinks": [],
+      "cards": [],
+      "icons": [
+        "refresh",
+        "settings",
+        "sync",
+        "info"
+      ],
+      "images": [],
+      "cssVars": {},
+      "colorPalette": {
+        "on-tertiary": "#581e00",
+        "surface-container-low": "#131b2e",
+        "tertiary-fixed-dim": "#ffb596",
+        "error-container": "#93000a",
+        "inverse-on-surface": "#283044",
+        "surface": "#0b1326",
+        "surface-container-highest": "#2d3449",
+        "primary": "#b4c5ff",
+        "surface-bright": "#31394d",
+        "primary-container": "#2563eb",
+        "surface-tint": "#b4c5ff",
+        "surface-container-high": "#222a3d",
+        "outline-variant": "#434655",
+        "on-primary-fixed": "#00174b",
+        "background": "#0b1326",
+        "on-primary-fixed-variant": "#003ea8",
+        "surface-container-lowest": "#060e20",
+        "inverse-primary": "#0053db",
+        "on-background": "#dae2fd",
+        "primary-fixed": "#dbe1ff",
+        "surface-dim": "#0b1326",
+        "inverse-surface": "#dae2fd",
+        "surface-container": "#171f33",
+        "on-secondary": "#213145",
+        "secondary-fixed": "#d3e4fe",
+        "secondary-fixed-dim": "#b7c8e1",
+        "tertiary-fixed": "#ffdbcd",
+        "on-secondary-fixed-variant": "#38485d",
+        "on-surface": "#dae2fd",
+        "on-primary": "#002a78",
+        "on-error-container": "#ffdad6",
+        "on-tertiary-fixed": "#360f00",
+        "surface-variant": "#2d3449",
+        "secondary-container": "#3a4a5f",
+        "secondary": "#b7c8e1",
+        "on-tertiary-fixed-variant": "#7d2d00",
+        "outline": "#8d90a0",
+        "tertiary": "#ffb596",
+        "on-error": "#690005",
+        "tertiary-container": "#bc4800",
+        "on-surface-variant": "#c3c6d7",
+        "on-tertiary-container": "#ffede6",
+        "on-secondary-container": "#a9bad3",
+        "on-secondary-fixed": "#0b1c30",
+        "on-primary-container": "#eeefff",
+        "primary-fixed-dim": "#b4c5ff",
+        "error": "#ffb4ab"
+      },
+      "fonts": [
+        "Material Symbols Outlined",
+        "JetBrains Mono",
+        "Inter",
+        "Geist"
+      ],
+      "layoutHints": {
+        "gridCols": 1,
+        "flexDirection": "col"
+      },
+      "behaviorContract": [
+        {
+          "kind": "button",
+          "label": "refresh",
+          "icon": "refresh",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "button",
+          "label": "settings",
+          "icon": "settings",
+          "action": "navigate",
+          "route": "/settings",
+          "expectedBehavior": "navigate:/settings"
+        },
+        {
+          "kind": "button",
+          "label": "Refresh Status",
+          "icon": "sync",
+          "action": "click-action",
+          "expectedBehavior": "produce visible DOM/state/URL feedback; never empty onClick"
+        },
+        {
+          "kind": "input",
+          "label": "toggle",
+          "type": "checkbox",
+          "placeholder": "",
+          "expectedBehavior": "controlled value with onChange; validation if required by PRD"
+        }
+      ],
+      "tabBar": [],
+      "title": "Status Utility - FixLoop Smoke Board"
+    }
+  }
+}

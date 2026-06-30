@@ -1,0 +1,11 @@
+[
+  {
+    "screenId": "22e3be4b575e46cfa1a2b311d596b59c",
+    "name": "Status Utility - FixLoop Smoke Board",
+    "type": "app-screen",
+    "description": "Status Utility - FixLoop Smoke Board screen",
+    "surfaceIds": [
+      "SURF_STATUS_UTILITY"
+    ]
+  }
+]
