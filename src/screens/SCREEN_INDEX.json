@@ -1,0 +1,31 @@
+[
+  {
+    "screenId": "22e3be4b575e46cfa1a2b311d596b59c",
+    "title": "Status Utility - FixLoop Smoke Board",
+    "componentName": "StatusUtilityFixloopSmokeBoard",
+    "file": "src/screens/StatusUtilityFixloopSmokeBoard.tsx",
+    "buttons": 3,
+    "inputs": 1,
+    "links": 0,
+    "actions": [
+      {
+        "id": "refresh-1",
+        "kind": "button",
+        "label": "Refresh",
+        "index": 0
+      },
+      {
+        "id": "settings-2",
+        "kind": "button",
+        "label": "Settings",
+        "index": 1
+      },
+      {
+        "id": "refresh-status-3",
+        "kind": "button",
+        "label": "Refresh Status",
+        "index": 2
+      }
+    ]
+  }
+]
